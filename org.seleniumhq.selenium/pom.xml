@@ -1,0 +1,98 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>dev.galasa</groupId>
+		<artifactId>galasa-wrapping-parent</artifactId>
+		<version>0.6.0</version>
+	</parent>
+
+	<artifactId>org.openqa.selenium</artifactId>
+	<version>3.141.59</version>
+	<packaging>bundle</packaging>
+
+	<name>Galasa wrapped version of Selenium Java</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-api</artifactId>
+			<version>3.141.59</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-firefox-driver</artifactId>
+			<version>3.141.59</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-support</artifactId>
+			<version>3.141.59</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-remote-driver</artifactId>
+			<version>3.141.59</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<supportedProjectTypes>bundle</supportedProjectTypes>
+					<instructions>
+						<Bundle-SymbolicName>org.openqa.selenium</Bundle-SymbolicName>
+						<Embed-Transitive>true</Embed-Transitive>
+						<Embed-Dependency>*;scope=compile</Embed-Dependency>
+						<Export-Package>org.openqa.selenium,
+										org.openqa.selenium.*,
+										org.openqa.selenium.support.ui,
+										org.openqa.selenium.WebDriver,
+										org.openqa.selenium.firefox,
+										com.google.common.*, 
+										org.openqa.selenium.firefox.internal, 
+										org.openqa.selenium.html5, 
+										org.openqa.selenium.remote, 
+										org.openqa.selenium.remote.service,
+										android.*,
+										org.checkerframework.checker.nullness.*,
+										com.google.errorprone.*,
+										org.checkerframework.checker.formatter.*,
+										org.checkerframework.checker.regex.*,
+										org.checkerframework.framework.*,
+										org.checkerframework.checker.units.*,
+										afu.org.checkerframework.checker.units.*,
+										afu.org.checkerframework.checker.formatter.*,
+										afu.org.checkerframework.dataflow.*,
+										afu.org.checkerframework.framework.*,
+										org.*,
+										afu.org.checkerframework.checker.regex.*,
+										org.checkerframework.dataflow.*,
+										*
+										<!-- org.openqa.selenium.WebDriver.Navigation,
+										org.openqa.selenium.WebDriver.Options,
+										org.openqa.selenium.WebDriver.TargetLocator,
+										org.openqa.selenium.By,
+										org.openqa.selenium.WebElement,
+										org.openqa.selenium.firefox,
+										org.openqa.selenium.firefox.FirefoxDriver,
+										org.openqa.selenium.firefox.FirefoxOptions,
+										org.openqa.selenium.firefox.FirefoxProfile,
+										org.openqa.selenium.firefox.ProfilesIni,
+										org.openqa.selenium.support.ui.ExpectedConditions,
+										org.openqa.selenium.support.ui.WebDriverWait -->
+										</Export-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+</project>
